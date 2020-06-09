@@ -26,6 +26,11 @@
 - 旅行に行く人が調べたい時
 
 ## 設計書
+Deep_Local_Trip_設計書に格納
+
+WBS
+https://docs.google.com/spreadsheets/d/1TMOt5dWuCzXY7zKBuK4uV_2Alyzu7-m1IQ1Vvj4Ylqs/edit#gid=0
+
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1vGfsHYn_YTWWOd6HSYimh2D_UHTr5OGtHOXbbrtpdHQ/edit#gid=0
