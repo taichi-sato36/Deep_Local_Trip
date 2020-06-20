@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :posts, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :like_posts, through: :likes, source: :post
+  attachment :profile_image
 
        #   enum local:{a:0, b:1, c:2, d:3, e:4, f:5, g:6, h:7, i:8, j:9, k:10, l:11, m:12, n:13, o:14,
   			  # p:15, q:16, r:17, s:18, t:19, u:20, v:21, w:22, x:23, y:24, z:25, aa:26, ab:27, ac:28, 

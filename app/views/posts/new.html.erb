@@ -1,2 +1,28 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h1>新規投稿</h1>
+
+<%= form_for(@post) do |f| %>
+ 
+    <% if @post.errors.any? %>
+        <%= @post.errors.count %>件のエラーが発生しました
+        <% @post.errors.full_messages.each do |message| %>
+            <%= message %>
+        <% end %>
+    <% end %>
+
+    <p>タイトル</p>
+        <%= f.text_field :title %><br>
+    <p>地元か旅行客を選ぶ</p>
+        <%= f.select :is_valid, [["旅行客", true],["地元", false]] %><br>
+    <p>都道府県を選ぶ</p>
+        <%= f.collection_select :prefecture_id, Prefecture.all , :id, :name, include_blank: "" %><br>
+    <p>住所</p>
+        <%= f.text_field :address %><br>
+    <p>補足事項</p>
+        <%= f.text_field :supplement %><br>
+    <p>画像</p>
+        <%= f.attachment_field :post_image %><br>
+    <p>テキスト</p>
+        <%= f.text_area :text %><br>
+
+        <%= f.submit "送信" %>
+<% end %>

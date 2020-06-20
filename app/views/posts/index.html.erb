@@ -1,2 +1,10 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class="row">
+	<% @posts.each do |posts| %>
+		<%= attachment_image_tag posts, :post_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb" %>
+			<%= link_to post_path(posts.id) do %>
+				<%= posts.title %>
+			<% end %>
+		<%= posts.supplement %>
+		<%= posts.text %>
+	<% end %>
+</div>

@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+prefectures = Prefecture.create(
+	[	{name: "北海道"},
+		{name: "青森"},
+		{name: "秋田"},
+		{name: "岩手"},
+		{name: "どこか"},
+		{name: "そこか"}
+	])
