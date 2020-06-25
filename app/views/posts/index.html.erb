@@ -1,10 +1,29 @@
-<div class="row">
-	<% @posts.each do |posts| %>
-		<%= attachment_image_tag posts, :post_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb" %>
-			<%= link_to post_path(posts.id) do %>
-				<%= posts.title %>
+
+<div class="container">
+	<div class="row">
+		<h1 class="col-md-offset-1"><%= (@prefecture.present?)? "#{@prefecture.name}一覧" : "全国一覧" %></h1>
+			<% @posts.each do |post| %>
+			  <div class="col-sm-12 col-md-6 waku">
+			    <div class="card img-thumbnail">
+			    	<%= link_to post_path(post.id) do %>
+			      		<%= attachment_image_tag post, :post_image, :fill,500,500, format: 'jpeg', fallback: "show_image.png" %>
+			      	<% end %>
+			      <div class="card-body">
+			        <h2 class="card-title">
+			        	<%= link_to user_mypage_path(post.user_id) do %>
+			        		<%= attachment_image_tag post.user, :profile_image, :fill,70,70, format: 'jpeg', fallback: "show_image.png", class: 'img-circle' %>
+			        	<% end %>
+			        	&ensp;
+			        	<%= link_to post.title, post_path(post.id) %>
+			        </h2>
+			        	<div class="card-text">
+			        		<%= link_to user_mypage_path(post.user_id) do %>
+			        			<p><%= post.user.name%></p>
+			        		<% end %>
+			        	</div>
+			      </div>
+			    </div>
+			  </div>
 			<% end %>
-		<%= posts.supplement %>
-		<%= posts.text %>
-	<% end %>
+	</div>
 </div>

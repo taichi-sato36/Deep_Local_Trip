@@ -1,51 +1,14 @@
 ja:
-  enums:
-    user:
-      local:
-        a: 北海道
-        b: 青森
-        c: 秋田
-        e: 岩手
-        f: 山形
-        g: 宮城
-        h: 福島
-        i: 群馬
-        j: 栃木
-        k: 茨城
-        l: 埼玉
-        m: 東京
-        n: 千葉
-        o: 神奈川
-        p: 新潟
-        q: 富山
-        r: 石川
-        s: 福井
-        t: 長野
-        u: 山梨
-        v: 静岡
-        w: 愛知
-        x: 岐阜
-        y: 滋賀
-        z: 三重
-        aa: 京都
-        ab: 大阪
-        ac: 奈良
-        ad: 和歌山
-        ae: 兵庫
-        af: 鳥取
-        ag: 岡山
-        ah: 島根
-        ai: 広島
-        aj: 山口
-        ak: 香川
-        al: 徳島
-        am: 愛媛
-        an: 高知
-        ao: 福岡
-        ap: 佐賀
-        aq: 長崎
-        ar: 熊本
-        as: 大分
-        at: 宮崎
-        au: 鹿児島
-        av: 沖縄
+  activerecord:
+    attributes:
+        user:
+            name: ニックネーム
+            email: メールアドレス
+            password: パスワード
+        post:
+            title: タイトル
+            address: 住所
+            supplement: 補足事項
+            text: 本文
+            prefecture: 都道府県
+            post_image_id: 画像

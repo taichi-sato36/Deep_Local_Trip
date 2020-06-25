@@ -1,0 +1,200 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_tree ../../../vendor/assets/stylesheets/.
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+
+ body { padding-top: 70px;
+ 		background-color: #C1CCAE; 
+ 		font-family: "Montserrat","游ゴシック",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,sans-serif;
+ }
+
+ #container{
+ 	width:	100%;
+ 	height: 730px;
+ 	background-size: cover;
+ }
+
+
+ .navbar-right { 
+ 	color:rgb(0,0,0); 
+ 	padding-top: 10px ;
+ }
+
+.navbar-right li { 
+ 	color: #000000; 
+}
+
+.mv-title {
+	font-size: 120px;
+	padding-top: 170px;
+	padding-left: 278px;
+	color: #fff;
+	opacity: 0.7;
+}
+
+.card {
+	margin-left : 10px;
+	margin-right : 10px;
+	margin-top : 30px;
+}
+
+.card-title {
+	margin-left : 10px;
+}
+.card-text p {
+	padding-left : 17px;
+}
+
+.img {
+	width: 100%;
+	height: 100%;
+}
+
+.space {
+	margin-left: 30px;
+}
+
+.post-under {
+	margin-bottom: 20px;
+	margin-left: 250px;
+}
+
+.post-sub {
+	margin-left: 300px;
+}
+
+.comment-left {
+	text-align: left;
+	float: left;
+	font-size: 14px;
+}
+.comment-right {
+	text-align: right;
+}
+
+.comment-under {
+	margin-bottom: 20px;
+}
+
+.title-font {
+	font-size: 50px;
+}
+
+.button-size {
+	height: 150px;
+	margin-bottom: 20px;
+	font-size: 50px;
+	padding-top: 40px;
+	background-color: #F29A7E;
+	color: #fff;
+}
+
+.mypage-top {
+	margin-top: 20px;
+}
+
+.mypage-under {
+	margin-bottom: 20px;
+	margin-left: 420px;
+}
+
+.mypage-text {
+	margin-left: 450px;
+}
+
+.post-bt {
+	margin-right: 10px;
+	margin-top: 5px;
+}
+
+#map{
+	height: 400px;
+}
+
+.about-title {
+	margin-top: 30px;
+	height: 200px;
+}
+
+.about-title h1 {
+	font-size: 90px;
+	color: #F29A7E;
+	margin-top: 40px;
+}
+
+.about-tizu {
+	height: 500px;
+	background-size: cover;
+}
+
+.about-post {
+	margin-top: 50px;
+	height: 1400px;
+}
+
+.box1 {
+    padding: 0.5em 1em;
+    margin: 1em 0;
+    font-weight: bold;
+    color: #F29A7E;/*文字色*/
+    background: #FFF;
+    border: solid 3px #F29A7E;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+
+.box2 {
+	padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    background: #FFF;
+    border: solid 2px #6091d3;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+
+.box7{
+    padding: 0.5em 1em;
+    background: whitesmoke;/*背景色*/
+    border-left: double 7px #4ec4d3;/*左線*/
+    border-right: double 7px #4ec4d3;/*右線*/
+}
+
+.font-about {
+	font-size: 29px;
+}
+
+@media (max-width: 576px){
+	.mv-title {
+	font-size: 100px;
+	color: #fff;
+	opacity: 0.7;
+}
+	.about-title h1 {
+		font-size: 40px;
+		color: #F29A7E;
+		margin-top: 60px;
+}
+}
+
+@media (max-width: 1000px){
+	.about-title h1 {
+	font-size: 50px;
+	color: #F29A7E;
+	margin-top: 60px;
+}
+}

@@ -71,4 +71,5 @@ gem 'enum_help'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.4.1'
+gem 'rails-i18n'
 

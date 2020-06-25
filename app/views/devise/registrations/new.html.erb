@@ -30,7 +30,7 @@
                               <label class="control-label sr-only" for="inputConfirmPassword">パスワード確認</label>
                               <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", id:"inputConfirmPassword", placeholder:"パスワード確認(6文字以上)" %>
                           </div>
-                              <%= f.submit "新規登録", class:"btn btn-primary btn-lg btn-block btn-base-1 mt-20" %>
+                              <%= f.submit "新規登録", class:"btn btn-primary btn-lg btn-block" %>
                           <% end %>
 
                       <br/><%= render "devise/shared/links" %>

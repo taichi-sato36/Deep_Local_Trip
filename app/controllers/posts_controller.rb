@@ -1,7 +1,20 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
-  	@posts = Post.all
+  	if params[:prefecture_id]
+  		# prefectureidを探す
+  		@prefecture = Prefecture.find(params[:prefecture_id])
+  	   # prefecture_idと紐づく商品を取得
+	    @posts = @prefecture.posts.all
+	else
+	    # 商品すべてを取得
+	    @posts = Post.all
+	end
+  end
+
+  def prefectures
+  	@prefectures = Prefecture.all
   end
 
   def new
@@ -11,7 +24,7 @@ class PostsController < ApplicationController
   def create
   	@post = Post.new(post_params)
   	@post.user_id = current_user.id
-  	if @post.save
+  	if @post.save!
   		redirect_to posts_path
  	 else
  	 	render :new
