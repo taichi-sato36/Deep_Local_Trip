@@ -13,5 +13,5 @@ prefectures = Prefecture.create(
 		{name: "愛知"},{name: "岐阜"},{name: "滋賀"},{name: "三重"},{name: "京都"},{name: "大阪"},{name: "奈良"},
 		{name: "和歌山"},{name: "兵庫"},{name: "鳥取"},{name: "岡山"},{name: "島根"},{name: "広島"},{name: "山口"},
 		{name: "香川"},{name: "徳島"},{name: "愛媛"},{name: "高知"},{name: "福岡"},{name: "佐賀"},{name: "長崎"},
-		{name: "熊本"},{name: "大分"},{name: "宮崎"},{name: "鹿児島"},{name: "沖縄"}
+		{name: "熊本"},{name: "大分"},{name: "宮崎"},{name: "鹿児島"},{name: "沖縄"},{name: "その他"}
 	])

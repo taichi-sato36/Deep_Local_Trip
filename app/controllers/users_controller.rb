@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 	before_action :authenticate_user!
 	def show
 		@user = User.find(params[:id])
-		@posts = @user.posts
+		@posts = @user.posts.page(params[:page]).per(200).order('updated_at DESC')
 	end
 
 	def edit
@@ -15,7 +15,6 @@ class UsersController < ApplicationController
 	def update
 	  	@user = User.find(params[:id])
 	  	if @user.update(user_params)
-	  		flash[:notice] = "編集しました"
 	  		redirect_to user_mypage_path(@user.id)
 		else
 		    render "edit"

@@ -1,9 +1,7 @@
-
-<section class="slice slice-lg sct-color-1">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <% if @post.errors.any? %>
+ <div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <% if @post.errors.any? %>
                 <div class="col-xs-12" id="error_explanation">
                     <h2>
                         <%= @post.errors.count %>件のエラーがあります</h2>
@@ -14,52 +12,56 @@
                     </ul>
                 </div>
             <% end %>
-
-                <div class="form-user style-1 rounded has-shadow-1">
-                    <div class="form-header text-center">
-                        <h2 class="form-header-title">新規投稿</h2>
-                    </div>
-                    <div class="form-body">
-                        
-                        <%= form_for(@post) do |f| %>
-                            <div class="field">
-                                <label for="title">タイトル</label>
-                                <%= f.text_field :title, size: "50*10" %>
-                            </div>
-                            <div class="field">
-                                <br/><label for="is_valid">旅行先か地元かを選ぶ</label>
-                                <%= f.select :is_valid, [["旅行客", true],["地元", false]] %>
-                            </div>
-                            <div class="field">
-                                <br/><label for="prefecture">都道府県を選ぶ</label>
-                                <%= f.collection_select :prefecture_id, Prefecture.all , :id, :name, include_blank: "" %>
-                            </div>
-                            <div class="field">
-                                <br/><label for="address">場所の住所(地図が出るのでできるだけ正確に)</label>
-                                <%= f.text_field :address, size: "50*10" %>
-                            </div>
-                            <div class="field">
-                               <br/> <label for="supplement">補足事項(:駅の裏、飲食店等なんでもあり)</label>
-                                <%= f.text_field :supplement, size: "50*10" %>
-                            </div>
-                            <div class="field">
-                                <br/><label for="post_image">画像</label>
-                                <%= f.attachment_field :post_image, placeholder: "画像" %>
-                            </div>
-                            <div class="field">
-                                <br/><label for="text">本文</label>
-                                <%= f.text_area :text, size: "80x10" %>
-                            </div>
-                            <div class="actions">
-                                <br/><%= f.submit "投稿する", class:"btn btn-primary btn-lg btn-block btn-base-1 mt-20" %><br/><br/><br/>
-                            </div>
-                        <% end %>
-                        
-                    </div>
-                </div>
+              <div class="text-center">
+                 <h2>新規投稿</h2>
+             </div>
+              <div class="form-body">
+                  <%= form_for(@post) do |f| %>
+                      <div class="field">
+                          <label for="title">タイトル</label>
+                          <%= f.text_field :title, size: "50*10" %>
+                      </div>
+                      <div class="field">
+                          <br/><label for="is_valid">旅行先か地元かを選ぶ</label>
+                          <%= f.select :is_valid, [["旅行客", true],["地元", false]] %>
+                      </div>
+                      <div class="field">
+                          <br/><label for="prefecture">都道府県を選ぶ</label>
+                          <%= f.collection_select :prefecture_id, Prefecture.all , :id, :name, include_blank: "" %>
+                      </div>
+                      <div class="field">
+                          <br/><label for="address">場所の住所(地図が出るのでできるだけ正確に)</label>
+                          <%= f.text_field :address, size: "50*10" %>
+                      </div>
+                      <div class="field">
+                         <br/> <label for="supplement">補足事項(:駅の裏、飲食店等なんでもあり)</label>
+                          <%= f.text_field :supplement, size: "50*10" %>
+                      </div>
+                      <div class="field">
+                          <br/><label for="post_image">画像(必ず画像を入れてください)</label>
+                          <%= f.attachment_field :post_image, placeholder: "画像" %>
+                      </div>
+                      <div class="field">
+                          <br/><label for="text">本文</label>
+                          <%= f.text_area :text, size: "50x10" %>
+                      </div>
+                      <div class="actions">
+                          <br/><%= f.submit "投稿する", class:"btn btn-primary btn-lg btn-block btn-base-1 mt-20" %><br/><br/><br/>
+                      </div>
+                  <% end %>                        
             </div>
         </div>
     </div>
-</section>
-
+</div>
+<!-- フッター -->
+<footer class="footer">
+    <div class="container">
+        <h5 class="text-right text-muted">
+            <a href="https://twitter.com/st36deco" target="_blank">
+              <i class="fab fa-twitter-square"></i>
+            </a>:作成者:さとう。
+        </h5>
+    </div>
+</footer>
+<!-- フッター -->
 

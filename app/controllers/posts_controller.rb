@@ -2,14 +2,15 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    # 都道府県全てとそれぞれの県全てを分けて表示させる
   	if params[:prefecture_id]
   		# prefectureidを探す
   		@prefecture = Prefecture.find(params[:prefecture_id])
-  	   # prefecture_idと紐づく商品を取得
-	    @posts = @prefecture.posts.all
+  	   # prefecture_idと紐づくデータを取得
+	    @posts = @prefecture.posts.page(params[:page]).reverse_order
 	else
-	    # 商品すべてを取得
-	    @posts = Post.all
+	    # データをすべてを取得
+	    @posts = Post.page(params[:page]).reverse_order
 	end
   end
 
@@ -24,8 +25,8 @@ class PostsController < ApplicationController
   def create
   	@post = Post.new(post_params)
   	@post.user_id = current_user.id
-  	if @post.save!
-  		redirect_to posts_path
+  	if @post.save
+  		redirect_to post_path(@post.id)
  	 else
  	 	render :new
  	 end
@@ -37,7 +38,7 @@ class PostsController < ApplicationController
   end
 
   def likes
-  	@like_posts = current_user.like_posts
+  	@like_posts = current_user.like_posts.page(params[:page]).per(200).order('updated_at DESC')
   end
 
 private

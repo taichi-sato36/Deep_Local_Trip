@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
 	before_action :configure_permitted_parameters, if: :devise_controller?
-
+# ログイン後にマイページへ遷移
 	def after_sign_in_path_for(resouce)
 		user_mypage_path(resouce)
 	end
+# ログアウト後にホムペーじへ遷移
 	def after_sign_out_path_for(resouce)
 		home_path
 	end
