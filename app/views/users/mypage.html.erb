@@ -1,0 +1,54 @@
+<div class="container">
+	<h2>マイページ</h2>
+	<div class="row">
+		<div class="col-md-12">
+			<!-- プロフィール -->
+			<div class="pull-left mypage-top">
+				<%= attachment_image_tag @user, :profile_image, :fill, 300, 300, format: 'jpeg', fallback: "mypage_image.png" , class: "img"%>
+			</div>
+			<div class="center-block mypage-top">
+				<h2 class="mypage-under">ニックネーム</h2>
+				<h3 class="mypage-text"><%= @user.name %></h3><!-- ニックネームの表示 -->
+				<h2 class="mypage-under">出身地</h2>
+				<h3 class="mypage-text"><%= @user.local %></h3><!-- 出身地を表示 -->
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 mypage-top">
+			<h2 class="">プロフィール</h2>
+			<div class="panel">
+					<h3 class=""><%= @user.profile%></h3><!-- 本文を表示 -->
+			</div>
+			<% if @user == current_user %><!-- ログインユーザーのみ -->
+				<%= link_to '編集する', edit_user_path(current_user.id), class: 'col-md-3 col-md-offset-9 btn btn-default' %>
+			<% else %>
+			<% end %>
+		</div>
+	</div>
+			<!-- プロフィール終了 -->
+	<div class="row">
+		<div class="col-md-12 col-xs-12 mypage-top">
+				<h2>投稿</h2>
+				<% if @user == current_user %> <!-- ログインユーザーのみ。他人のマイページの時はその人の投稿を表示 -->
+					<%= link_to '自分の投稿', user_path(current_user.id), class: 'btn btn-lg btn-block button-size' %>
+					<%= link_to 'お気に入り一覧', likes_posts_path, class: 'btn btn-lg btn-block button-size' %>
+				<% else %>
+					<%= link_to user_path(@user.id) do%>
+						<p class="btn btn-lg btn-block button-size"><%= @user.name %>の投稿を見る</p> 
+					<% end %>
+				<% end %>
+		</div>
+	</div>
+</div>
+<!-- フッター -->
+<footer class="footer">
+    <div class="container">
+	    <h5 class="text-right text-muted">
+            <a href="https://twitter.com/st36deco" target="_blank">
+              <i class="fab fa-twitter-square"></i>
+            </a>:作成者:さとう。
+        </h5>
+    </div>
+</footer>
+<!-- フッター -->

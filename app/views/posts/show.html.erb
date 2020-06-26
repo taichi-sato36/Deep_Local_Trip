@@ -1,0 +1,143 @@
+<div class="container">
+	<div class="row">
+		<%= attachment_image_tag @post, :post_image, :fill, 1200, 900, format: 'jpeg', fallback: "show_image.png", class: "img" %>
+		<div class="col-md-12">
+			<h1 class="title-font box3"><%= @post.title %>
+				<p class="text-right"><% if @post.like_by?(current_user) %>
+					<%= link_to post_likes_path(@post), method: :delete do %>
+						<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+						<%= @post.likes.count %>
+					<% end %>
+				
+				<% else %>
+					<%= link_to post_likes_path(@post), method: :post do %>
+						<i class="fa fa-heart" aria-hidden="true" style="color: black;"></i>
+						<%= @post.likes.count %>
+					<% end %>
+				<% end %></p>
+			</h1>
+			<div class="row">
+				<div class="pull-left">
+					<%= link_to user_mypage_path(@post.user_id) do %>
+						<%= attachment_image_tag @post.user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "show_image.png", class: "img-circle" %> 
+						<h3 class="space"><%= @post.user.name %></h3>
+					<% end %>
+				</div>
+				<div class="center-block">
+					<h2 class="post-under">住所</h2>
+					<h3 class="post-under"><%= @post.address %></h3>
+					<h4 class="post-sub"><%= (@post.is_valid == true) ? "旅行先" : "地元" %>&ensp;:&ensp;<%= @post.prefecture.name %>について紹介</h4>
+					<h3 class="post-under">補足事項</h3>
+					<h4 class="post-sub"><%= @post.supplement %></h4>
+					
+				</div>
+			</div>
+			<!-- googlemapを表示 -->
+			<div class="row">
+				<h2 class="box1">地図(更新をクリック！)</h2>
+
+				<!-- 地名入力用のinputを追加 -->
+				<input id="address" type="textbox" value="<%= @post.address %>">
+
+				<!-- buttonをクリックしたらcodeAddressを実行　-->
+				<input type="button" value="更新" onclick="codeAddress()">
+				<div id='map'>
+				</div>
+
+				<script>
+
+
+				let map
+				let geocoder
+
+				function initMap(){
+				  // geocoderを初期化
+				  geocoder = new google.maps.Geocoder()
+
+				  map = new google.maps.Map(document.getElementById('map'), {
+				  center: {lat: 35.6812879, lng: 139.7670561},
+				  zoom: 15
+				  });
+				}
+
+				function codeAddress(){
+				  // 入力を取得
+				  let inputAddress = document.getElementById('address').value;
+
+				  // geocodingしたあとmapを移動
+				  geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+				    if (status == 'OK') {
+				　　　　　　　　　　　　// map.setCenterで地図が移動
+				      map.setCenter(results[0].geometry.location);
+
+				　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
+				      var marker = new google.maps.Marker({
+				          map: map,
+				          position: results[0].geometry.location
+				      });
+				    } else {
+				      alert('Geocode was not successful for the following reason: ' + status);
+				    }
+				  });
+				}
+
+				</script>
+				<!-- detenv-rails でAPIkeyを隠す -->
+				<script src="https://maps.googleapis.com/maps/api/js?key= <%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer></script>
+			</div>
+
+			<div class="row">
+				<h1 class="box1">本文</h1>
+				<div class="panel">
+					<h2><%= @post.text %></h2>
+				</div>
+			</div>
+			<div class="row">
+				<h1 class="box1">コメント一覧</h1>
+				<div class="well">
+				<h3><i class="fa fa-comment"></i>&ensp;<%= @post.post_comments.count %>件のコメント</h3>
+				<ol>
+				    <% @post.post_comments.each do |post_comment| %>
+				        <li>
+				        	<div>
+					       		<p class="comment-left"><%= post_comment.user.name %></p>
+					       		<p class="comment-right"><%= post_comment.created_at.to_s(:datetime_jp) %></p>
+					        </div>
+					        <div class="comment-under">
+					        	<%= link_to user_mypage_path(post_comment.user_id) do %>
+								<%= attachment_image_tag post_comment.user, :profile_image, :fill, 30, 30, format: 'jpeg', fallback: "comment_image.png", class: "img-circle" %> 
+								<% end %>
+					            <%= post_comment.comment %>
+					            <% if post_comment.user == current_user%>
+								<%= link_to "コメントを削除する", post_post_comment_path(post_comment.post, post_comment), method: :delete, class: "text-danger pull-right" %><br/><br/>
+								<% end %>
+							</div>
+				        </li>
+				    <% end %>
+				</ol>
+				<%= form_for [@post, @post_comment] do |f| %>
+				    <div class="row">
+				        <div class="col-sm-12">
+				            <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメント" %>
+				        </div>
+				    </div>
+				    <div class="row post-bt">
+					 <%= f.submit "送信する", class: "btn btn-lg btn-info pull-right" %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
+<!-- フッター -->
+<footer class="footer">
+    <div class="container">
+	    <h5 class="text-right text-muted">
+            <a href="https://twitter.com/st36deco" target="_blank">
+              <i class="fab fa-twitter-square"></i>
+            </a>:作成者:さとう。
+        </h5>
+    </div>
+</footer>
+<!-- フッター -->

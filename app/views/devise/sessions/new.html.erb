@@ -1,0 +1,48 @@
+<div class="container">
+   <div class="row">
+       <div class="col-md-4 col-md-offset-4">
+
+           <div class="text-center">
+               <h2>ユーザーログイン</h2>
+           </div>
+
+
+           <div class="row">
+               <div class="col-xs-offset-1 col-xs-10">
+                   <div class="text-center">
+                       <h4>メールアドレスと<br>パスワードを入力してください。</h4>
+                   </div>
+               </div>
+           </div>
+
+                      
+             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+               <div class="form-group">
+                 <span class="fa fa-envelope" aria-hidden="true"></span>
+                 <label class="sr-only" for="inputEmail">Email</label>
+                 <%= f.email_field :email, autofocus: true, class:"form-control", id:"inputEmail", placeholder:"メールアドレス"%>
+               </div>
+               <div class="form-group">
+                 <span class="fa fa-lock" aria-hidden="true"></span>
+                 <label class="sr-only" for="inputPassword">Password</label>
+                   <%= f.password_field :password, autocomplete: "off", class:"form-control", id:"inputPassword", placeholder:"パスワード" %>
+               </div>
+               <%= f.submit "サインイン", class:"btn btn-primary btn-lg btn-block btn-base-1 mt-20" %>
+             <% end %> 
+           
+            <br/><%= render "devise/shared/links" %>
+        </div>
+    </div>
+</div>
+<!-- フッター -->
+<footer class="footer">
+    <div class="container">
+      <h5 class="text-right text-muted">
+            <a href="https://twitter.com/st36deco" target="_blank">
+              <i class="fab fa-twitter-square"></i>
+            </a>:作成者:さとう。
+        </h5>
+    </div>
+</footer>
+<!-- フッター -->
+

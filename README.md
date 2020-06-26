@@ -1,5 +1,7 @@
 # Deep Local Trip
 
+
+
 ## サイト概要
 - ユーザー（地元民と旅行者で分けたい）が投稿したおすすめの景色、お店等を都道府県別(ジャンル分け)で表示できるサイト
 - いいね 機能をつけてお気に入りをマイページで一覧表示できる
@@ -28,10 +30,13 @@
 ## 設計書
 Deep_Local_Trip_設計書に格納
 
-WBS
-https://docs.google.com/spreadsheets/d/1TMOt5dWuCzXY7zKBuK4uV_2Alyzu7-m1IQ1Vvj4Ylqs/edit#gid=0
+## お気に入りポイント
+- 投稿した住所の地図を表示させられる！
 
 
-### 機能一覧
-https://docs.google.com/spreadsheets/d/1vGfsHYn_YTWWOd6HSYimh2D_UHTr5OGtHOXbbrtpdHQ/edit#gid=0
+
+#### 追加していきたい機能。。
+- ワードで記事を検索できるようにしたい。。
+- ユーザー同士のコメント機能(ダイレクトメール)
+- 地図を更新なしで表示させたい。
 
