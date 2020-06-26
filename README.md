@@ -1,5 +1,6 @@
 # Deep Local Trip
 
+<img width="1440" alt="Deep_Local_Trip" src="https://user-images.githubusercontent.com/62977161/85860097-2ee94280-b7f9-11ea-8148-f928d927b143.png">
 
 
 ## サイト概要
@@ -33,6 +34,7 @@ Deep_Local_Trip_設計書に格納
 ## お気に入りポイント
 - 投稿した住所の地図を表示させられる！
 
+<img width="988" alt="スクリーンショット 2020-06-26 20 05 17" src="https://user-images.githubusercontent.com/62977161/85860192-58a26980-b7f9-11ea-97f5-3eab6c3e798b.png">
 
 
 #### 追加していきたい機能。。
