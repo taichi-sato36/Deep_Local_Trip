@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+    attributes:
+        user:
+            name: ニックネーム
+            email: メールアドレス
+            password: パスワード
+        post:
+            title: タイトル
+            address: 住所
+            supplement: 補足事項
+            text: 本文
+            prefecture: 都道府県
+            post_image: 画像
+ja:
+    views:
+            pagination:
+                first: <i class="fas fa-angle-double-left"></i>
+                last: <i class="fas fa-angle-double-right"></i>
+                previous: <i class="fas fa-angle-left"></i>
+                next: <i class="fas fa-angle-right"></i>
+                truncate: "..."
