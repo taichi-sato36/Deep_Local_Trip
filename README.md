@@ -36,9 +36,15 @@ Deep_Local_Trip_設計書に格納
 
 <img width="988" alt="スクリーンショット 2020-06-26 20 05 17" src="https://user-images.githubusercontent.com/62977161/85860192-58a26980-b7f9-11ea-97f5-3eab6c3e798b.png">
 
-
+---
 #### 追加していきたい機能。。
 - ワードで記事を検索できるようにしたい。。
 - ユーザー同士のコメント機能(ダイレクトメール)
 - 地図を更新なしで表示させたい。
 
+---
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1vGfsHYn_YTWWOd6HSYimh2D_UHTr5OGtHOXbbrtpdHQ/edit#gid=0
+
+## WBS
+https://docs.google.com/spreadsheets/d/1TMOt5dWuCzXY7zKBuK4uV_2Alyzu7-m1IQ1Vvj4Ylqs/edit#gid=1773513600
