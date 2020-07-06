@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_18_181551) do
+ActiveRecord::Schema.define(version: 2020_07_06_050408) do
 
   create_table "homes", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -51,6 +51,18 @@ ActiveRecord::Schema.define(version: 2020_06_18_181551) do
   create_table "prefectures", force: :cascade do |t|
     t.integer "trip", limit: 1, default: 0, null: false
     t.string "name", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tag_posts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

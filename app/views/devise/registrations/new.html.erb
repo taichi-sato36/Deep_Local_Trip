@@ -11,25 +11,25 @@
                   <div class="form-group">
                       <span class="fa fa-user" aria-hidden="true"></span>
                       <label class="sr-only" for="inputName">ニックネーム</label>
-                      <%= f.text_field :name, autofocus: true, class:"form-control", id:"inputName", placeholder:"ニックネーム"%>
+                      <%= f.text_field :name, autofocus: true, class:"form-control", id:"inputName", placeholder:"ニックネーム", autocomplete:"off"%>
                   </div>
                   <!-- メールアドレス -->
                   <div class="form-group">
                       <span class="fa fa-envelope" aria-hidden="true"></span>
                       <label class="sr-only" for="inputEmail">メールアドレス</label>
-                      <%= f.email_field :email, class:"form-control", id:"inputEmail", placeholder:"メールアドレス"%>
+                      <%= f.email_field :email, class:"form-control", id:"inputEmail", placeholder:"メールアドレス", autocomplete:"off"%>
                   </div>
                   <!-- パスワード -->
                   <div class="form-group">
                       <span class="fa fa-lock" aria-hidden="true"></span>
                       <label class="sr-only" for="inputPassword">パスワード</label>
-                      <%= f.password_field :password, autocomplete: "off", class:"form-control", id:"inputPassword", placeholder:"パスワード(6文字以上)" %>
+                      <%= f.password_field :password, autocomplete: "off", class:"form-control", id:"inputPassword", placeholder:"パスワード(6文字以上)" , autocomplete:"off"%>
                   </div>
                   <!-- パスワード確認用 -->
                   <div class="form-group">
                       <span class="fa fa-check-circle" aria-hidden="true"></span>
                       <label class="sr-only" for="inputConfirmPassword">パスワード確認</label>
-                      <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", id:"inputConfirmPassword", placeholder:"パスワード確認(6文字以上)" %>
+                      <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", id:"inputConfirmPassword", placeholder:"パスワード確認(6文字以上)" , autocomplete:"off"%>
                   </div>
                       <%= f.submit "新規登録", class:"btn btn-primary btn-lg btn-block" %>
                   <% end %>

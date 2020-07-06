@@ -15,7 +15,20 @@ module DeepLocalTrip
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    # -------------------
+    # タイムゾーンを東京に
+    # -------------------
     config.time_zone = 'Tokyo'
+
+    # -------------------
+    # 日本語にする
+    # -------------------
     config.i18n.default_locale = :ja
+    
+    # -------------------
+    # libを読み込む
+    # -------------------
+    config.paths.add 'lib', eager_load: true
   end
 end

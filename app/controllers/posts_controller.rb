@@ -26,6 +26,10 @@ class PostsController < ApplicationController
   	@post = Post.new(post_params)
   	@post.user_id = current_user.id
   	if @post.save
+      tags = Vision.get_image_data(@post.post_image)
+      tags.each do |tag|
+        @post.tags.create(name: tag)
+      end
   		redirect_to post_path(@post.id)
  	 else
  	 	render :new
@@ -40,6 +44,7 @@ class PostsController < ApplicationController
   def likes
   	@like_posts = current_user.like_posts.page(params[:page]).per(200).order('updated_at DESC')
   end
+
 
 private
     def post_params
